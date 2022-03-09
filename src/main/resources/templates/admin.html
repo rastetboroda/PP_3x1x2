@@ -149,12 +149,20 @@
                                                             <div class="form-group text-center">
                                                                 <b><label for="role">Role</label></b>
                                                                 <br>
-                                                                <select class="form-control" multiple name="role"
-                                                                        id="role"
-                                                                        size="2">
-                                                                    <option value="1">ADMIN</option>
-                                                                    <option selected value="2">USER </option>
-                                                                </select>
+<!--                                                                <select class="form-control" multiple name="role"-->
+<!--                                                                        id="role"-->
+<!--                                                                        size="2">-->
+<!--                                                                    <option value="1">ADMIN</option>-->
+<!--                                                                    <option selected value="2">USER </option>-->
+<!--                                                                </select>-->
+                                                                <label><b>Role</b></label>
+                                                                <input th:type="checkbox" th:id="2" th:name="ADMIN"
+                                                                       th:value="ADMIN">
+                                                                <label th:for="ADMIN">Admin</label>
+                                                                <input th:type="checkbox" th:id="1" th:name="USER"
+                                                                       th:value="USER">
+                                                                <label th:for="USER">User</label>
+                                                                <br><br>
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary"
