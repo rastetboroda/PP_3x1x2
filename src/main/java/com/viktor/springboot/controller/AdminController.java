@@ -41,15 +41,15 @@ public class AdminController {
     }
 
     @PostMapping("/add")
-    public String addUser(@ModelAttribute("user") User user, @RequestParam("role") ArrayList<Integer> role) {
-        user.setRoles(role.stream().map((r) -> roleService.getByIdRole(r)).collect(Collectors.toSet()));
+    public String addUser(@ModelAttribute("user") User user, @RequestParam("rolesBox") ArrayList<String> rolesBox) {
+        user.setRoles(rolesBox.stream().map(r -> roleService.getRoleByName(r)).collect(Collectors.toSet()));
         userService.addUser(user);
         return "redirect:/admin";
     }
 
     @PostMapping("/{id}")
-    public String updateUser(@ModelAttribute("user") User user, @RequestParam("role") ArrayList<Integer> role) {
-        user.setRoles(role.stream().map((r) -> roleService.getByIdRole(r)).collect(Collectors.toSet()));
+    public String updateUser(@ModelAttribute("user") User user, @RequestParam("rolesBox") ArrayList<String> rolesBox) {
+        user.setRoles(rolesBox.stream().map(r -> roleService.getRoleByName(r)).collect(Collectors.toSet()));
         userService.updateUser(user);
         return "redirect:/admin";
     }
